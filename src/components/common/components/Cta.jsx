@@ -14,13 +14,13 @@ const Cta = ({
   const Tag = allowedTags.includes(as) ? as : "button";
 
   const variants = {
-    base: "border border-solid border-white px-6 py-3",
+    base: "border border-solid border-white px-6 py-3 hover:bg-white/50 hover:border-transparent",
   };
 
   return (
     <Tag
       onClick={onClick}
-      className={`text-white rounded-xl inline-block ${
+      className={`text-white rounded-xl inline-block transition-all ease-linear duration-300 cursor-pointer ${
         variants[variant] || variants.base
       } ${className}`}
       {...rest}>

@@ -1,12 +1,9 @@
-import Dummy from "@/components/Dummy";
-import Hero from "@/components/Hero";
-import Image from "next/image";
+import Home from "@/components/home/Home";
 
-export default function Home() {
+export default function page() {
   return (
     <>
-      <Hero />
-      <Dummy />
+      <Home />
     </>
   );
 }
