@@ -13,7 +13,7 @@ const Text = ({
   const variants = {
     primary: "text-xl font-bold",
     secondary: "text-lg font-semibold",
-    base: "text-base font-medium",
+    base: "text-base font-normal",
   };
 
   return (

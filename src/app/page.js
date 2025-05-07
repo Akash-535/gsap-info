@@ -1,9 +1,11 @@
-import Home from "@/components/home/Home";
-
-export default function page() {
+import React from "react";
+import Hom from "../../src/components/home/Home";
+const page = () => {
   return (
-    <>
-      <Home />
-    </>
+    <div>
+      <Hom />
+    </div>
   );
-}
+};
+
+export default page;

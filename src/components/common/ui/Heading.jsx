@@ -14,16 +14,15 @@ const Heading = ({
 
   // customize style variants
   const variants = {
-    primary: "text-5xl font-bold",
-    secondary: "text-3xl font-semibold",
-    base: "text-2xl font-medium",
+    primary: "text-5xl font-bold text-white",
+    secondary: "text-3xl font-semibold text-white",
+    base: "text-2xl font-medium text-white",
+    code: "code",
   };
 
   return (
     <Tag
-      className={`text-white ${
-        variants[variant] || variants.base
-      } ${className}`}
+      className={`  ${variants[variant] || variants.base} ${className}`}
       {...rest}>
       {children}
     </Tag>

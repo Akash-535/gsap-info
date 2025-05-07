@@ -2,3 +2,33 @@
 body {
   @apply bg-slate-900;
 }
+.scroll-bar-none::-webkit-scrollbar {
+  @apply hidden;
+}
+.scroll-bar-mini::-webkit-scrollbar {
+  @apply w-1;
+}
+.scroll-bar-mini::-webkit-scrollbar-thumb {
+  @apply bg-white rounded;
+}
+code,
+.code {
+  background-color: #1e1e1e; /* deep dark */
+  color: #dcdcaa; /* yellowish code color like in VS Code */
+  font-family: "Fira Code", monospace;
+  @apply text-xl px-2 pt-2 pb-3 rounded-xl font-semibold inline-block;
+}
+.mini-code code,
+.mini-code .code {
+  @apply text-base font-normal p-1 rounded;
+}
+.example-detail p {
+  @apply text-base font-normal text-white;
+}
+
+.simple-code {
+  background-color: #1e1e1e; /* deep dark */
+  color: #dcdcaa; /* yellowish code color like in VS Code */
+  font-family: "Fira Code", monospace;
+  @apply p-2 rounded-md;
+}

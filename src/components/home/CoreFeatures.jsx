@@ -1,10 +1,34 @@
-import React from "react";
+"use client";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 import Heading from "../common/ui/Heading";
-import Text from "../common/ui/Text";
-import Cta from "../common/components/Cta";
 import OrderedList from "../common/ui/OrderedList";
+import Text from "../common/ui/Text";
+import { useEffect, useRef } from "react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const CoreFeatures = () => {
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+
+    gsap.to(section, {
+      scrollTrigger: {
+        trigger: section,
+        start: "top top",
+        end: "+=200%",
+        pin: true,
+        pinSpacing: false,
+      },
+    });
+
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
+
   const coreFeatures = [
     {
       title: "Smooth Animations (No Jank)",
@@ -34,8 +58,10 @@ const CoreFeatures = () => {
   ];
 
   return (
-    <div className="text-center container h-screen  mx-auto flex flex-col justify-center items-center">
-      <div className="space-y-5">
+    <div
+      ref={sectionRef}
+      className="text-center w-full  h-screen mx-auto flex flex-col justify-center items-center bg-gray-800">
+      <div className="space-y-5 ">
         <Heading variant="primary" as="h1">
           The most powerful features of GSAP
         </Heading>

@@ -6,13 +6,11 @@ const ToE = () => {
   const headingRef = useRef(null);
   const cardsRef = useRef([]);
   const buttonRef = useRef(null);
-
   useEffect(() => {
     // Set initial styles before animating "to" them
     gsap.set(headingRef.current, { opacity: 0, y: -40 });
     gsap.set(cardsRef.current, { opacity: 0, y: 30 });
     gsap.set(buttonRef.current, { opacity: 0, scale: 0.8 });
-
     // Animate heading to visible
     gsap.to(headingRef.current, {
       opacity: 1,
@@ -20,7 +18,6 @@ const ToE = () => {
       duration: 1,
       ease: "power3.out",
     });
-
     // Animate cards in with stagger
     gsap.to(cardsRef.current, {
       opacity: 1,
@@ -29,7 +26,6 @@ const ToE = () => {
       duration: 1,
       ease: "power2.out",
     });
-
     // Animate button
     gsap.to(buttonRef.current, {
       opacity: 1,
@@ -40,11 +36,10 @@ const ToE = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center gap-8 bg-blue-950 text-white p-8">
+    <div className=" py-20 flex flex-col items-center justify-center gap-8  text-white p-8">
       <h1 ref={headingRef} className="text-4xl font-bold">
-        GSAP .to() Animation Magic ✨
+        <span className="simple-code">gsap.to()</span> Animation Magic ✨
       </h1>
-
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full max-w-4xl">
         {["Box A", "Box B", "Box C"].map((label, i) => (
           <div
@@ -66,5 +61,4 @@ const ToE = () => {
     </div>
   );
 };
-
 export default ToE;

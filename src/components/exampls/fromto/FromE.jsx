@@ -39,7 +39,7 @@ const FromE = () => {
       ref={containerRef}
       className="min-h-screen flex flex-col items-center justify-center gap-8 bg-gray-900 text-white p-8">
       <h1 className="heading text-4xl font-bold">
-        GSAP .to() Animation Magic 🚀
+        GSAP <span className="simple-code">.from()</span> Animation Magic 🚀
       </h1>
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full max-w-4xl">
@@ -58,7 +58,7 @@ const FromE = () => {
 
       <button
         ref={buttonRef}
-        className="mt-6 px-6 py-3 bg-green-500 rounded-full  opacity-100font-semibold hover:bg-green-400 transition-all duration-300 ease-linear">
+        className="mt-6 px-6 py-3 bg-green-500 rounded-full  opacity-100font-semibold hover:bg-green-400 ">
         Click Me
       </button>
     </div>

@@ -43,9 +43,9 @@ const FromToE = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center gap-8 bg-purple-950 text-white p-8">
+    <div className="min-h-screen flex flex-col items-center justify-center gap-8 text-white p-8">
       <h1 ref={headingRef} className="text-4xl font-bold">
-        GSAP fromTo() Power 💥
+        GSAP <span className="simple-code">.fromTo()</span> Power 💥
       </h1>
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full max-w-4xl">
@@ -64,7 +64,7 @@ const FromToE = () => {
 
       <button
         ref={buttonRef}
-        className="mt-6 px-6 py-3 bg-pink-400 text-black rounded-full font-semibold hover:bg-pink-300 transition-all ease-linear duration-300">
+        className="mt-6 px-6 py-3 bg-pink-400 text-black rounded-full font-semibold hover:bg-pink-300">
         Animate Me
       </button>
     </div>
