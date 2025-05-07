@@ -5,9 +5,7 @@ const Cta = ({
   children,
   className = "",
   variant = "base",
-  onClick = (e) => {
-    e.preventDefault();
-  }, // optional click handler
+  onClick = (e) => {}, // optional click handler
   ...rest // collect all other props
 }) => {
   const allowedTags = ["button", "a"];

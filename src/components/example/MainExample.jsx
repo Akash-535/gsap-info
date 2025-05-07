@@ -11,6 +11,9 @@ import DrawE from "../exampls/draw/DrawE";
 import FromE from "../exampls/fromto/FromE";
 import FromToE from "../exampls/fromto/FromToE";
 import ToE from "../exampls/fromto/ToE";
+import Cta from "../common/components/Cta";
+import TimeLine from "../exampls/fromto/timeline/TimeLineE";
+import GsapConcepts from "../home/GsapConcepts";
 
 const MainExample = () => {
   const { slug } = useParams();
@@ -50,24 +53,35 @@ const MainExample = () => {
       codeBlock: SOURCE_CODE.add,
       fileName: "Add Timeline Example",
     },
+    {
+      key: "gsaptimeline",
+      component: <TimeLine />,
+      codeBlock: SOURCE_CODE.timeline,
+      fileName: "Add Timeline Example",
+    },
   ];
 
   const selected = animac.find((item) => item.key === slug);
 
   return (
-    <div className="container mx-auto text-center py-12">
+    <div className="container max-xl:px-5 mx-auto text-center py-12">
       {filteredOne ? (
         <>
           <Heading
             as="h1"
             variant="primary"
-            className="text-center simple-code inline-block">
+            className="text-center simple-code inline-block mb-4">
             {filteredOne.title}
           </Heading>
           <div
             className="mini-code example-detail max-w-[600px] mx-auto space-y-3"
             dangerouslySetInnerHTML={{ __html: filteredOne.explanation }}
           />
+          <div className="pt-5">
+            <Cta href="/" as="a">
+              Go Back
+            </Cta>
+          </div>
           {selected ? (
             <>
               {selected.component}
@@ -87,6 +101,7 @@ const MainExample = () => {
       ) : (
         <p>Loading...</p>
       )}
+      <GsapConcepts />
     </div>
   );
 };
