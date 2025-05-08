@@ -32,3 +32,10 @@ code,
   font-family: "Fira Code", monospace;
   @apply p-2 rounded-md;
 }
+.animation-area {
+  @apply my-10 border border-solid border-white/60 p-4 rounded-xl flex flex-col justify-center items-center grow w-full;
+}
+
+.bg-custom-grdnt {
+  background: linear-gradient(to right, rgba(1, 73, 1, 0.675) 50%, green 50%);
+}
