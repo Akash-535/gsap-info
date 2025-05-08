@@ -29,7 +29,7 @@ const AddE = () => {
   }, []);
 
   return (
-    <div className="h-screen bg-zinc-900 text-white flex flex-col items-center justify-center p-10">
+    <div className="h-screen text-white flex flex-col items-center justify-center p-10">
       <h1 className="text-4xl font-bold mb-10">
         Cards Animated with <code>.add()</code> 🎯
       </h1>
