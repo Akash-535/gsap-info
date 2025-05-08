@@ -1,9 +1,12 @@
 "use client";
 import Heading from "../../common/ui/Heading";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import gsap from "gsap";
+import Cta from "../../common/components/Cta";
 
 const Task4 = () => {
+  const [reload, SetReload] = useState(0);
+
   useEffect(() => {
     // Initial position for the elements
     gsap.set(".timeline-anim-2", {
@@ -48,14 +51,19 @@ const Task4 = () => {
         "-=0.5"
       );
     // Start 2nd anim slightly before 1st ends for smoother feel
-  }, []);
+  }, [reload]);
 
   return (
-    <div className="h-screen w-full flex flex-col justify-center items-center px-5 py-10">
+    <div className="min-h-screen w-full flex flex-col justify-center items-center px-5 py-10">
       <Heading as="h2" variant="secondary">
         Task 4 Timeline <span className="simple-code">Example</span>
       </Heading>
       <div className="animation-area relative">
+        <Cta
+          onClick={() => SetReload(reload + 1)}
+          className="absolute right-3 top-3">
+          Re-Load
+        </Cta>
         <div className="flex gap-4">
           {Array(5)
             .fill()

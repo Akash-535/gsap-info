@@ -14,6 +14,7 @@ const Text = ({
     primary: "text-xl font-bold",
     secondary: "text-lg font-semibold",
     base: "text-base font-normal",
+    nav: "text-xl font-medium",
   };
 
   return (

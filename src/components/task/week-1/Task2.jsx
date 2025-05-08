@@ -1,9 +1,12 @@
 "use client";
 import Heading from "../../common/ui/Heading";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import gsap from "gsap";
+import Cta from "../../common/components/Cta";
 
 const Task2 = () => {
+  const [reload, SetReload] = useState(0);
+
   useEffect(() => {
     // Opacity fade-in with stagger
     gsap.fromTo(
@@ -18,7 +21,7 @@ const Task2 = () => {
         delay: 0.5,
       }
     );
-  }, []);
+  }, [reload]);
 
   return (
     <div className="h-screen w-full flex flex-col justify-center items-center px-5 py-10">
@@ -26,6 +29,11 @@ const Task2 = () => {
         Task 2 Animate <span className="simple-code">Fade/Opacity</span>
       </Heading>
       <div className="animation-area relative">
+        <Cta
+          onClick={() => SetReload(reload + 1)}
+          className="absolute right-3 top-3">
+          Re-Load
+        </Cta>
         <div className="flex gap-4">
           {Array(5)
             .fill()

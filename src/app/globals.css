@@ -33,7 +33,7 @@ code,
   @apply p-2 rounded-md;
 }
 .animation-area {
-  @apply my-10 border border-solid border-white/60 p-4 rounded-xl flex flex-col justify-center items-center grow w-full;
+  @apply my-10 border border-solid border-white/60 p-4 rounded-xl flex flex-col justify-center items-center grow w-full relative;
 }
 
 .bg-custom-grdnt {

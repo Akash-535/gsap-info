@@ -60,7 +60,7 @@ const CoreFeatures = () => {
   return (
     <div
       ref={sectionRef}
-      className="text-center w-full  h-screen mx-auto flex flex-col justify-center items-center bg-gray-800">
+      className="text-center w-full  h-screen mx-auto flex flex-col justify-center items-center bg-gray-700">
       <div className="space-y-5 ">
         <Heading variant="primary" as="h1">
           The most powerful features of GSAP

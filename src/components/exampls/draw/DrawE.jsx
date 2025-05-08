@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 
@@ -32,20 +31,15 @@ const DrawE = () => {
   }, []);
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-[#111]">
+    <div className="flex items-center justify-center min-h-screen ">
       <svg
         viewBox="0 0 200 200"
         className="w-64 h-64"
         fill="none"
         stroke="#ffcc00"
         strokeWidth="4">
-        {/* Roof - triangle */}
         <path ref={roofRef} d="M50 100 L100 50 L150 100 Z" />
-
-        {/* House body - rectangle */}
         <path ref={bodyRef} d="M60 100 L60 160 L140 160 L140 100 Z" />
-
-        {/* Door - smaller rectangle */}
         <path ref={doorRef} d="M90 160 L90 120 L110 120 L110 160 Z" />
       </svg>
     </div>

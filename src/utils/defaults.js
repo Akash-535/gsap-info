@@ -38,6 +38,17 @@ export const gsapConcepts = [
     `,
   },
   {
+    title: "draw()",
+    description:
+      "Animates SVG strokes to make them appear like they’re being drawn in real time.",
+    explanation: `
+    <p>The <code>draw</code> effect in GSAP usually refers to animating the stroke of an SVG path using the <code>DrawSVGPlugin</code>.</p>
+    <p>It gives the illusion of a path being drawn on screen by animating the <code>stroke-dasharray</code> and <code>stroke-dashoffset</code> properties.</p>
+    <p>Common use: <code>gsap.fromTo("path", { drawSVG: "0%" }, { drawSVG: "100%", duration: 2 })</code></p>
+    <p>This is especially powerful for line art, illustrations, signatures, or any SVG-based storytelling visuals.</p>
+  `,
+  },
+  {
     title: "add()",
     description:
       "Adds a tween, label, or callback into a timeline at a specific time or label.",

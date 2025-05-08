@@ -13,6 +13,7 @@ import FromToE from "../exampls/fromto/FromToE";
 import ToE from "../exampls/fromto/ToE";
 import Cta from "../common/components/Cta";
 import TimeLine from "../exampls/fromto/timeline/TimeLineE";
+import Draw from "../exampls/draw/DrawE";
 import GsapConcepts from "../home/GsapConcepts";
 
 const MainExample = () => {
@@ -57,6 +58,12 @@ const MainExample = () => {
       key: "gsaptimeline",
       component: <TimeLine />,
       codeBlock: SOURCE_CODE.timeline,
+      fileName: "Add Timeline Example",
+    },
+    {
+      key: "draw",
+      component: <Draw />,
+      codeBlock: SOURCE_CODE.draw,
       fileName: "Add Timeline Example",
     },
   ];
