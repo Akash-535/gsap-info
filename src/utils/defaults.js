@@ -104,23 +104,7 @@ export const gsapConcepts = [
       <p>This keeps code cleaner and ensures consistent animation styles.</p>
     `,
   },
-  {
-    title: "stagger",
-    description:
-      "Applies an animation to a group of elements with time gaps between each.",
-    explanation: `
-      <p><code>stagger</code> is used to apply animations to multiple elements with delays between them.</p>
-      <p>It creates wave-like, cascading effects for list items, grid elements, or repeated shapes.</p>
-    `,
-  },
-  {
-    title: "delay",
-    description: "Adds a pause before the animation starts.",
-    explanation: `
-      <p><code>delay</code> specifies a wait time before an animation begins, measured in seconds.</p>
-      <p>Helpful for timing control, sequencing, or syncing effects with other events.</p>
-    `,
-  },
+
   {
     title: "ease",
     description:
@@ -130,15 +114,7 @@ export const gsapConcepts = [
       <p>GSAP supports many easing types such as <code>power1</code>, <code>bounce</code>, <code>elastic</code>, and even custom ease curves.</p>
     `,
   },
-  {
-    title: "scrub",
-    description:
-      "Binds an animation directly to scroll progress, making it scroll-driven.",
-    explanation: `
-      <p><code>scrub</code> links the animation’s progress directly to the scroll bar, so the animation plays as you scroll and reverses when you scroll back.</p>
-      <p>Great for fluid storytelling, parallax sections, and scroll-synced timelines.</p>
-    `,
-  },
+
   {
     title: "onComplete & onStart",
     description: "Callbacks that trigger at the start or end of animations.",
@@ -147,14 +123,7 @@ export const gsapConcepts = [
       <p>They’re used to trigger actions like starting another animation, updating UI, or firing side effects.</p>
     `,
   },
-  {
-    title: "toggleActions",
-    description: "Defines how animations behave when scrolling in/out of view.",
-    explanation: `
-      <p><code>toggleActions</code> is a ScrollTrigger setting that controls what happens when elements enter and leave the viewport.</p>
-      <p>The value is a string with four actions: <code>onEnter</code>, <code>onLeave</code>, <code>onEnterBack</code>, and <code>onLeaveBack</code>.</p>
-    `,
-  },
+
   {
     title: "matchMedia",
     description: "Creates responsive animations for different screen sizes.",

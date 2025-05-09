@@ -6,14 +6,19 @@ import { titleFormatter } from "../../utils/functions";
 import { SOURCE_CODE } from "../../utils/sourceCode";
 import CodeBlock from "../common/components/CodeBlock";
 import Heading from "../common/ui/Heading";
-import AddE from "../exampls/add/AddE";
-import DrawE from "../exampls/draw/DrawE";
-import FromE from "../exampls/fromto/FromE";
-import FromToE from "../exampls/fromto/FromToE";
-import ToE from "../exampls/fromto/ToE";
+import AddE from "./add/AddE";
+import DrawE from "./draw/DrawE";
+import FromE from "./fromto/FromE";
+import FromToE from "./fromto/FromToE";
+import ToE from "./fromto/ToE";
 import Cta from "../common/components/Cta";
-import TimeLine from "../exampls/fromto/timeline/TimeLineE";
-import Draw from "../exampls/draw/DrawE";
+import TimeLine from "./timeline/TimeLineE";
+import TimeLineDefaults from "./timeline/TimeLineDefaults";
+import Draw from "./draw/DrawE";
+import Context from "./ContextE";
+import ScrollTrigger from "./scrolltrigger/ScrollTriggerE";
+import Pin from "./scrolltrigger/ScrollPinE";
+import YoyoRepeat from "./YoyoRepeatE";
 import GsapConcepts from "../home/GsapConcepts";
 
 const MainExample = () => {
@@ -61,10 +66,40 @@ const MainExample = () => {
       fileName: "Add Timeline Example",
     },
     {
+      key: "context",
+      component: <Context />,
+      codeBlock: SOURCE_CODE.context,
+      fileName: "Add Timeline Example",
+    },
+    {
       key: "draw",
       component: <Draw />,
       codeBlock: SOURCE_CODE.draw,
       fileName: "Add Timeline Example",
+    },
+    {
+      key: "scrolltrigger",
+      component: <ScrollTrigger />,
+      codeBlock: SOURCE_CODE.scrolltrigger,
+      fileName: "Scrolltrigger Example",
+    },
+    {
+      key: "pin",
+      component: <Pin />,
+      codeBlock: SOURCE_CODE.scrollPin,
+      fileName: "Scrolltrigger Example",
+    },
+    {
+      key: "repeat-yoyo",
+      component: <YoyoRepeat />,
+      codeBlock: SOURCE_CODE.repeatYoyo,
+      fileName: "Repeat and Yoyo Example",
+    },
+    {
+      key: "defaults-in-timeline",
+      component: <TimeLineDefaults />,
+      codeBlock: SOURCE_CODE.defaults,
+      fileName: "Check the Defaults in timeline Example",
     },
   ];
 

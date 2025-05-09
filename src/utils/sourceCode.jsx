@@ -368,4 +368,240 @@ const AddE = () => {
 
 export default AddE;
 `,
+  context: `"use client";
+
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+
+const ContextE = () => {
+  const containerRef = useRef();
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.from(".box-context", {
+        y: 100,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.2,
+        ease: "power2.out",
+      });
+    }, containerRef);
+
+    return () => ctx.revert(); // clean up on unmount
+  }, []);
+
+  return (
+    <div ref={containerRef} className="p-10 flex gap-4">
+      <div className="box-context w-20 h-20 bg-red-500 rounded-lg" />
+      <div className="box-context w-20 h-20 bg-blue-500 rounded-lg" />
+      <div className="box-context w-20 h-20 bg-green-500 rounded-lg" />
+    </div>
+  );
+};
+
+export default ContextE;
+`,
+  scrollPin: `import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
+export default function ScrollTriggerE() {
+  const container = useRef(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        defaults: { duration: 1, ease: "power2.out" },
+        scrollTrigger: {
+          trigger: container.current,
+          start: "top top",
+          end: "+=300%",
+          toggleActions: "play none none reverse",
+          pin: true,
+          scrub: true,
+          markers: true,
+        },
+      });
+      tl.from(".fade-up", {
+        y: 100,
+        opacity: 0,
+        duration: 1,
+        scaleX: 1,
+        rotate: 0,
+      })
+        .to(".fade-up", {
+          scaleX: 0.8,
+          rotate: 0,
+          borderRadius: "100%",
+        })
+        .to(".fade-up", {
+          scaleX: 0.3,
+          rotate: 120,
+          borderRadius: "100%",
+        })
+        .to(".fade-up", {
+          scaleX: 0.3,
+          rotate: 180,
+          borderRadius: "100%",
+        })
+        .to(".fade-up", {
+          scaleX: 0.8,
+          rotate: 360,
+          borderRadius: "20px",
+        });
+    }, container);
+
+    return () => ctx.revert(); // Clean up
+  }, []);
+
+  return (
+    <div
+      ref={container}
+      className="h-screen flex flex-col bg-zinc-900 text-white px-10 py-20 space-y-40">
+      <h1 className="text-4xl">Scroll For Animation 👇</h1>
+      <div className="flex justify-center items-center w-full h-full">
+        <div className="fade-up w-full h-60 bg-green-500 flex items-center justify-center text-2xl rounded-xl shadow-lg">
+          I scroll in 🎉
+        </div>
+      </div>
+    </div>
+  );
+}
+`,
+  scrolltrigger: `import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
+export default function ScrollTriggerE() {
+  const container = useRef(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        defaults: { duration: 1, ease: "power2.out" },
+        scrollTrigger: {
+          trigger: container.current,
+          start: "top top",
+          end: "bottom bottom",
+          toggleActions: "play none none reverse",
+        },
+      });
+      tl.from(".fade-up", {
+        y: 100,
+        opacity: 0,
+        duration: 1,
+        scaleX: 1,
+        rotate: 0,
+      })
+        .to(".fade-up", {
+          scaleX: 0.8,
+          rotate: 0,
+          borderRadius: "100%",
+        })
+        .to(".fade-up", {
+          scaleX: 0.3,
+          rotate: 120,
+          borderRadius: "100%",
+        })
+        .to(".fade-up", {
+          scaleX: 0.3,
+          rotate: 180,
+          borderRadius: "100%",
+        })
+        .to(".fade-up", {
+          scaleX: 0.8,
+          rotate: 360,
+          borderRadius: "20px",
+        });
+    }, container);
+
+    return () => ctx.revert(); // Clean up
+  }, []);
+
+  return (
+    <div
+      ref={container}
+      className="h-screen flex flex-col text-white px-10 py-20 space-y-40">
+      <h1 className="text-4xl">Scroll For Animation 👇</h1>
+      <div className="flex justify-center items-center w-full h-full">
+        <div className="fade-up w-full h-60 bg-green-500 flex items-center justify-center text-2xl rounded-xl shadow-lg">
+          I scroll in 🎉
+        </div>
+      </div>
+    </div>
+  );
+}
+`,
+  repeatYoyo: `import { useEffect, useRef } from "react";
+import gsap from "gsap";
+
+export default function YoyoRepeatE() {
+  const container = useRef(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.to(".ball", {
+        y: -200,
+        duration: 1,
+        ease: "power1.in",
+        repeat: -1,
+        yoyo: true,
+        transformOrigin: "center",
+      });
+
+      gsap.to(".ball", {
+        scaleY: 0.8,
+        duration: 0.5,
+        repeat: -1,
+        yoyo: true,
+        ease: "power1.inOut",
+      });
+    }, container);
+
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <div
+      ref={container}
+      className=" pb-24 pt-[198px] flex items-end justify-center">
+      <div className="ball w-16 h-16 bg-orange-400 rounded-full mb-10 shadow-xl"></div>
+    </div>
+  );
+}
+`,
+  defaults: `"use client";
+import React, { useEffect, useRef } from "react";
+import gsap from "gsap";
+const TimeLineDefaultsE = () => {
+  const containerRef = useRef(null);
+  useEffect(() => {
+    // Defaults
+    const tl = gsap.timeline({ defaults: { opacity: 0, duration: 1 } });
+
+    tl.from(".box-timeline", {
+      scale: 0.5,
+      stagger: 0.5,
+    });
+  }, []);
+  return (
+    <div
+      ref={containerRef}
+      className="py-24 flex flex-col items-center justify-center text-white gap-10">
+      <div className=" flex gap-4">
+        <div className="box-timeline w-40 h-40 bg-gradient-to-br from-cyan-500 to-blue-700 rounded-xl shadow-xl"></div>
+        <div className="box-timeline w-40 h-40 bg-gradient-to-br from-cyan-500 to-blue-700 rounded-xl shadow-xl"></div>
+        <div className="box-timeline w-40 h-40 bg-gradient-to-br from-cyan-500 to-blue-700 rounded-xl shadow-xl"></div>
+      </div>
+    </div>
+  );
+};
+
+export default TimeLineDefaultsE;
+
+`,
 };
