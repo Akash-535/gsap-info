@@ -60,7 +60,7 @@ const Header = () => {
   }, [isDropOpen]);
 
   return (
-    <div className="sticky backdrop-blur-2xl top-0 z-50">
+    <div className="sticky backdrop-blur-2xl bg-slate-900/30 top-0 z-50">
       <div className="container mx-auto p-4 ">
         <nav ref={outSideRef} className="flex items-center justify-between">
           <Link href="/">

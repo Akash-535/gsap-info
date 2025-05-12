@@ -20,6 +20,13 @@ import ScrollTrigger from "./scrolltrigger/ScrollTriggerE";
 import Pin from "./scrolltrigger/ScrollPinE";
 import YoyoRepeat from "./YoyoRepeatE";
 import GsapConcepts from "../home/GsapConcepts";
+import EaseExplanation from "./ease/EaseExplanation";
+import MatchMedia from "./match-media/MatchMedia";
+import Modifiers from "./modifiers/Modifiers";
+import Kill from "./Kill";
+import OnCompleteAndStart from "./on-complete-and-start/OnCompleteAndStart";
+import Text from "../common/ui/Text";
+import AddLabelAndSeek from "./AddLabelAndSeek";
 
 const MainExample = () => {
   const { slug } = useParams();
@@ -101,48 +108,91 @@ const MainExample = () => {
       codeBlock: SOURCE_CODE.defaults,
       fileName: "Check the Defaults in timeline Example",
     },
+    {
+      key: "oncomplete-onstart",
+      component: <OnCompleteAndStart />,
+      codeBlock: SOURCE_CODE.onCompleteStart,
+      fileName: "Example",
+    },
+    {
+      key: "matchmedia",
+      component: <MatchMedia />,
+      codeBlock: SOURCE_CODE.matchmedia,
+      fileName: "Example",
+    },
+    {
+      key: "modifiers",
+      component: <Modifiers />,
+      codeBlock: SOURCE_CODE.motionPath,
+      fileName: "Example",
+    },
+    {
+      key: "kill",
+      component: <Kill />,
+      codeBlock: SOURCE_CODE.kill,
+      fileName: "Example",
+    },
+    {
+      key: "addlabel-seek",
+      component: <AddLabelAndSeek />,
+      codeBlock: SOURCE_CODE.labelSeek,
+      fileName: "Example",
+    },
+    {
+      key: "ease",
+      component: <EaseExplanation />,
+    },
   ];
 
   const selected = animac.find((item) => item.key === slug);
 
   return (
-    <div className="container max-xl:px-5 mx-auto text-center py-12">
-      {filteredOne ? (
-        <>
-          <Heading
-            as="h1"
-            variant="primary"
-            className="text-center simple-code inline-block mb-4">
-            {filteredOne.title}
-          </Heading>
-          <div
-            className="mini-code example-detail max-w-[600px] mx-auto space-y-3"
-            dangerouslySetInnerHTML={{ __html: filteredOne.explanation }}
-          />
-          <div className="pt-5">
-            <Cta href="/" as="a">
-              Go Back
-            </Cta>
-          </div>
-          {selected ? (
+    <div>
+      <div
+        className={`${
+          slug === "ease" ? "max-h-screen" : ""
+        } overflow-auto scroll-bar-mini-v2`}>
+        <div className="container max-xl:px-5 mx-auto text-center py-12">
+          {filteredOne ? (
             <>
-              {selected.component}
-              <Heading as="h4" className="text-start mb-4">
-                Code That Used In Animation
+              <Heading
+                as="h1"
+                variant="primary"
+                className="text-center simple-code inline-block mb-4">
+                {filteredOne.title}
               </Heading>
-              <CodeBlock
-                language="javascript"
-                filename={selected.fileName}
-                code={selected.codeBlock}
+              <div
+                className="mini-code example-detail max-w-[600px] mx-auto space-y-3"
+                dangerouslySetInnerHTML={{ __html: filteredOne.explanation }}
               />
+              <div className="pt-5">
+                <Cta href="/" as="a">
+                  Go Back
+                </Cta>
+              </div>
+              {selected?.component}
+              {selected && selected.codeBlock ? (
+                <>
+                  <Heading as="h4" className="text-start mb-4">
+                    Code That Used In Animation
+                  </Heading>
+                  <CodeBlock
+                    language="javascript"
+                    filename={selected.fileName}
+                    code={selected.codeBlock}
+                  />
+                </>
+              ) : (
+                <Text className="py-3 px-2 !text-xl">
+                  No animation demo for this concept yet.
+                </Text>
+              )}
             </>
           ) : (
-            <p>No animation demo for this concept yet.</p>
+            <p>Loading...</p>
           )}
-        </>
-      ) : (
-        <p>Loading...</p>
-      )}
+        </div>
+      </div>
       <GsapConcepts />
     </div>
   );

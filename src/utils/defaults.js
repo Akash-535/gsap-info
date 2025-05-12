@@ -1,3 +1,265 @@
+export const GSAP_EASE = {
+  explanationOf: "ease",
+  explanation: [
+    {
+      type: "Power",
+      base: "power",
+      description:
+        "The 'Power' eases offer a gradual progression from linear to more dramatic acceleration and deceleration. The higher the number, the more intense the curve. Great for general-purpose animations where you want to control how fast or slow something starts and ends.",
+      variants: [
+        {
+          name: "power1.in",
+          description:
+            "Starts with a gentle acceleration — smooth and subtle, ideal for soft entrances.",
+        },
+        {
+          name: "power1.out",
+          description:
+            "Starts fast and gently slows down — good for soft landings or fades.",
+        },
+        {
+          name: "power1.inOut",
+          description:
+            "Combines a soft start and end — balanced motion that feels natural.",
+        },
+        {
+          name: "power2.in",
+          description:
+            "Accelerates a bit harder than power1 — good for light movement buildup.",
+        },
+        {
+          name: "power2.out",
+          description:
+            "Decelerates more strongly — works well when you want something to 'settle' in.",
+        },
+        {
+          name: "power2.inOut",
+          description:
+            "Smooth on both ends with a bit more weight — nice for buttons or modals.",
+        },
+        {
+          name: "power3.in",
+          description:
+            "Slow to start and faster into the motion — adds drama at the front.",
+        },
+        {
+          name: "power3.out",
+          description:
+            "Begins fast and eases harder — great for attention-grabbing exits.",
+        },
+        {
+          name: "power3.inOut",
+          description:
+            "Noticeably smooth and strong on both ends — powerful transitions.",
+        },
+        {
+          name: "power4.in",
+          description:
+            "Extremely slow start with fast acceleration — feels like winding up before launch.",
+        },
+        {
+          name: "power4.out",
+          description:
+            "Begins instantly and slams the brakes at the end — great for dramatic stops.",
+        },
+        {
+          name: "power4.inOut",
+          description: "Extreme curve at both ends — big visual energy.",
+        },
+      ],
+    },
+    {
+      type: "Sine",
+      base: "sine",
+      description:
+        "Sine easing is based on sine waves — very smooth and natural, perfect for gentle transitions.",
+      variants: [
+        {
+          name: "sine.in",
+          description:
+            "Starts slow and speeds up softly — like a curtain being pulled open gently.",
+        },
+        {
+          name: "sine.out",
+          description:
+            "Starts quickly and fades out slowly — great for subtle exits.",
+        },
+        {
+          name: "sine.inOut",
+          description:
+            "Soft on both ends — the most balanced and calming feel.",
+        },
+      ],
+    },
+    {
+      type: "Expo",
+      base: "expo",
+      description:
+        "Exponential easing is extreme — it starts or ends *very* abruptly, creating high-energy motion.",
+      variants: [
+        {
+          name: "expo.in",
+          description:
+            "Starts off extremely slow, then blasts into full speed — gives a rocket launch effect.",
+        },
+        {
+          name: "expo.out",
+          description:
+            "Starts super fast, then brakes hard — useful when something needs to hit a stop with drama.",
+        },
+        {
+          name: "expo.inOut",
+          description:
+            "Starts slow, zooms mid-way, and ends slow — creates very high energy while staying smooth.",
+        },
+      ],
+    },
+    {
+      type: "Circ",
+      base: "circ",
+      description:
+        "Circular easing mimics circular motion — slow starts and ends, with a natural rolling feeling.",
+      variants: [
+        {
+          name: "circ.in",
+          description:
+            "Starts very slowly, then picks up — feels like something rolling from a stop.",
+        },
+        {
+          name: "circ.out",
+          description:
+            "Starts fast and eases softly — great for floating or gliding finishes.",
+        },
+        {
+          name: "circ.inOut",
+          description:
+            "Balanced easing with both ends curved — smooth and organic transitions.",
+        },
+      ],
+    },
+    {
+      type: "Back",
+      base: "back",
+      description:
+        "Back easing adds a small overshoot — it pulls or pushes before settling into place, like a spring being let go.",
+      variants: [
+        {
+          name: "back.in",
+          description:
+            "Pulls back slightly before launching forward — adds anticipation to entrances.",
+        },
+        {
+          name: "back.out",
+          description:
+            "Goes slightly past the target, then settles — great for snappy exits.",
+        },
+        {
+          name: "back.inOut",
+          description:
+            "Overshoots both at the start and end — very dynamic and playful motion.",
+        },
+      ],
+    },
+    {
+      type: "Bounce",
+      base: "bounce",
+      description:
+        "Bounce easing simulates real gravity and rebound — it adds a bouncy, playful energy.",
+      variants: [
+        {
+          name: "bounce.in",
+          description:
+            "Bounce effect at the beginning — like a ball bouncing upward before taking off.",
+        },
+        {
+          name: "bounce.out",
+          description:
+            "Bounces at the end — like dropping a ball and watching it settle.",
+        },
+        {
+          name: "bounce.inOut",
+          description:
+            "Bounces both at the beginning and end — great for cartoonish or fun elements.",
+        },
+      ],
+    },
+    {
+      type: "Elastic",
+      base: "elastic",
+      description:
+        "Elastic easing mimics springy motion — overshoots and wobbles before settling, very high-energy.",
+      variants: [
+        {
+          name: "elastic.in",
+          description:
+            "Starts with heavy resistance, then launches — good for dramatic entrances.",
+        },
+        {
+          name: "elastic.out",
+          description:
+            "Overshoots then snaps into place — like letting go of a stretched rubber band.",
+        },
+        {
+          name: "elastic.inOut",
+          description:
+            "Combines springiness at the start and end — excellent for exaggerated, bouncy elements.",
+        },
+      ],
+    },
+    {
+      type: "Rough",
+      base: "rough",
+      description:
+        "Rough easing creates jittery, randomized movement — chaotic, edgy, or glitchy effects.",
+      variants: [
+        {
+          name: "rough",
+          description:
+            "Motion jumps unpredictably, like a camera shake or a rough sketch — customizable with config options like strength and taper.",
+        },
+      ],
+    },
+    {
+      type: "SlowMo",
+      base: "slow",
+      description:
+        "SlowMo isn't physically slow — it slows the middle part of the animation for dramatic effect. Great for showcasing key moments.",
+      variants: [
+        {
+          name: "slow",
+          description:
+            "Speeds up at the beginning, slows down in the middle, then speeds up again — adds dramatic pacing in the middle.",
+        },
+      ],
+    },
+    {
+      type: "Steps",
+      base: "steps",
+      description:
+        "Steps easing breaks animation into fixed jumps instead of smooth motion — like ticking through frames or progress bars.",
+      variants: [
+        {
+          name: "steps",
+          description:
+            "Creates fixed jumps based on a step count, like `steps(5)` — great for sprite sheets or pixel-art-style movement.",
+        },
+      ],
+    },
+    {
+      type: "None",
+      base: "none",
+      description:
+        "No easing at all — just a constant, linear transition from start to end. Useful when you want robotic or direct motion.",
+      variants: [
+        {
+          name: "none",
+          description:
+            "No acceleration or deceleration — moves at a flat, even speed the entire time.",
+        },
+      ],
+    },
+  ],
+};
 export const gsapConcepts = [
   {
     title: "gsap.to()",
@@ -107,6 +369,7 @@ export const gsapConcepts = [
 
   {
     title: "ease",
+    moreInfo: GSAP_EASE,
     description:
       "Controls the animation’s speed curve. Can accelerate, decelerate, bounce, etc.",
     explanation: `
@@ -132,14 +395,7 @@ export const gsapConcepts = [
       <p>This makes it easy to build responsive animation logic without duplicating code for different breakpoints.</p>
     `,
   },
-  {
-    title: "motionPath",
-    description: "Animates elements along custom SVG-like paths.",
-    explanation: `
-      <p><code>motionPath</code> is a plugin that animates elements along a defined path or curve.</p>
-      <p>It supports automatic rotation, alignment, and easing to create smooth, visually rich motion paths.</p>
-    `,
-  },
+
   {
     title: "modifiers",
     description:
@@ -147,14 +403,6 @@ export const gsapConcepts = [
     explanation: `
       <p><code>modifiers</code> let you intercept and modify property values while they animate, using custom functions.</p>
       <p>This enables effects like snapping to a grid, looping positions, or clamping numbers on the fly.</p>
-    `,
-  },
-  {
-    title: "set()",
-    description: "Instantly sets properties on an element without animating.",
-    explanation: `
-      <p><code>gsap.set()</code> applies values immediately without any animation or tweening.</p>
-      <p>Useful for initialization, resetting styles, or toggling element states instantly.</p>
     `,
   },
   {
@@ -173,51 +421,5 @@ export const gsapConcepts = [
       <p><code>addLabel()</code> creates named markers in a timeline, allowing you to reference points with human-readable strings.</p>
       <p><code>seek()</code> lets you jump directly to a label or time, instantly updating the timeline's progress — useful for scrubbing, previews, or controls.</p>
     `,
-  },
-];
-
-export const gsapStyleProps = [
-  {
-    title: "x",
-    description:
-      "Moves an element horizontally. Uses hardware acceleration for better performance.",
-  },
-  {
-    title: "y",
-    description:
-      "Moves an element vertically. Like `x`, it’s optimized for performance.",
-  },
-  {
-    title: "opacity",
-    description:
-      "Controls transparency. `0` is invisible, `1` is fully visible.",
-  },
-
-  {
-    title: "scale",
-    description:
-      "Changes element size. `1` is normal, `0.5` is half-size, `2` is double.",
-  },
-  {
-    title: "rotation",
-    description:
-      "Rotates an element in degrees. Can spin multiple times using values over 360.",
-  },
-  {
-    title: "skewX and skewY",
-    description:
-      "Tilts elements on the X or Y axis, creating a slanted effect.",
-  },
-  {
-    title: "transformOrigin",
-    description: "Sets the anchor point for transforms like scale or rotate.",
-  },
-  {
-    title: "backgroundColor / color",
-    description: "Animates background or text color transitions smoothly.",
-  },
-  {
-    title: "width / height",
-    description: "Animates changes in size, useful for dynamic layout changes.",
   },
 ];

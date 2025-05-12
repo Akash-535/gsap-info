@@ -1,6 +1,5 @@
 export const SOURCE_CODE = {
-  to: `
-"use client";
+  to: `"use client";
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 
@@ -603,5 +602,212 @@ const TimeLineDefaultsE = () => {
 
 export default TimeLineDefaultsE;
 
+`,
+  onCompleteStart: `import React, { useEffect, useRef, useState } from "react";
+import gsap from "gsap";
+
+const OnCompleteAndStart = () => {
+  const boxRef = useRef(null);
+  const [status, setStatus] = useState("");
+
+  useEffect(() => {
+    gsap.fromTo(
+      boxRef.current,
+      {
+        x: -300,
+        duration: 2,
+      },
+      {
+        onStart: () => {
+          setStatus("🚀 Animation Started!");
+        },
+        x: 300,
+        duration: 2,
+
+        onComplete: () => {
+          setStatus("🎉 Animation Completed!");
+        },
+      }
+    );
+  }, []);
+
+  return (
+    <div className="flex flex-col items-center justify-center py-12 bg-gray-900 text-white gap-6">
+      <div ref={boxRef} className="w-20 h-20 bg-blue-500 rounded-md"></div>
+      <p className="text-xl">Status:- {status}</p>
+    </div>
+  );
+};
+
+export default OnCompleteAndStart;
+`,
+  matchmedia: `import React, { useEffect, useRef } from "react";
+import gsap from "gsap";
+
+const MatchMedia = () => {
+  const boxRef = useRef(null);
+
+  useEffect(() => {
+    const mm = gsap.matchMedia();
+
+    mm.add(
+      {
+        isDesktop: "(min-width: 768px)",
+        isMobile: "(max-width: 767px)",
+      },
+      (context) => {
+        const { isDesktop, isMobile } = context.conditions;
+
+        gsap.to(boxRef.current, {
+          x: isDesktop ? 300 : 0,
+          y: isMobile ? 300 : 0,
+          duration: 2,
+          ease: "power2.out",
+          onStart: () => {
+            console.log("📱 Responsive Animation Started");
+          },
+          onComplete: () => {
+            console.log("✅ Responsive Animation Completed");
+          },
+        });
+
+        return () => {
+          // Clean up animations when screen size changes
+          gsap.killTweensOf(boxRef.current);
+        };
+      }
+    );
+
+    return () => mm.revert(); // kill matchMedia listeners on unmount
+  }, []);
+
+  return (
+    <div className="flex items-center justify-center h-screen bg-zinc-800">
+      <div ref={boxRef} className="w-20 h-20 bg-pink-500 rounded-lg"></div>
+    </div>
+  );
+};
+
+export default MatchMedia;
+`,
+  motionPath: `import React, { useEffect, useRef } from "react";
+import gsap from "gsap";
+
+const Modifiers = () => {
+  const boxRef = useRef(null);
+
+  useEffect(() => {
+    gsap.to(boxRef.current, {
+      x: 500,
+      duration: 5,
+      repeat: -1,
+      ease: "none",
+      modifiers: {
+      // replace  ' with  backtick and remove space after $
+        x: (x) => '$ {parseFloat(x) % 500}px', // loop back after hitting 500
+      },
+    });
+  }, []);
+
+  return (
+    <div className="flex items-center justify-center py-12 overflow-hidden">
+      <div
+        ref={boxRef}
+        className="w-20 h-20 bg-yellow-400 rounded-lg text-black font-bold flex items-center justify-center">
+        🚀
+      </div>
+    </div>
+  );
+};
+
+export default Modifiers;
+`,
+  kill: `import React, { useEffect, useRef } from "react";
+import gsap from "gsap";
+
+const Kill = () => {
+  const boxRef = useRef(null);
+
+  useEffect(() => {
+    const tween = gsap.to(boxRef.current, {
+      x: 300,
+      duration: 2,
+      onComplete: () => {
+        console.log("✅ Animation completed, now killing it");
+        gsap.killTweensOf(boxRef.current);
+      },
+    });
+
+    return () => {
+      // Just in case user navigates away early
+      tween.kill();
+    };
+  }, []);
+
+  return (
+    <div style={{ height: "100vh", display: "flex", alignItems: "center" }}>
+      <div
+        ref={boxRef}
+        style={{
+          width: 60,
+          height: 60,
+          backgroundColor: "orange",
+        }}
+      />
+    </div>
+  );
+};
+
+export default Kill;
+`,
+  labelSeek: `import React, { useEffect, useRef } from "react";
+import gsap from "gsap";
+
+const AddLabelAndSeek = () => {
+  const boxRef = useRef(null);
+  const timelineRef = useRef(null); // so we can access it later
+
+  useEffect(() => {
+    const tl = gsap.timeline({ paused: true }); // pause by default
+    timelineRef.current = tl;
+
+    tl.to(boxRef.current, { x: 100, duration: 1 })
+      .addLabel("halfway")
+      .to(boxRef.current, { y: 100, duration: 1 })
+      .addLabel("end")
+      .to(boxRef.current, { x: 0, y: 0, duration: 1 });
+
+    tl.play(); // start playing from beginning
+
+    // After 2s: jump to "halfway" and play from there
+    setTimeout(() => {
+      console.log("⏩ Playing from halfway...");
+      tl.pause();
+      tl.play("halfway");
+    }, 2000);
+
+    // After 4s: jump to "end" and play from there
+    setTimeout(() => {
+      console.log("⏩ Playing from end...");
+      tl.pause();
+      tl.play("end");
+    }, 4000);
+  }, []);
+
+  return (
+    <div className="py-12">
+      <div
+        ref={boxRef}
+        style={{
+          width: 60,
+          height: 60,
+          backgroundColor: "limegreen",
+        }}
+      />
+    </div>
+  );
+};
+
+export default AddLabelAndSeek;
 `,
 };

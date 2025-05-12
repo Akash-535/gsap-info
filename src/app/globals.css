@@ -5,11 +5,15 @@ body {
 .scroll-bar-none::-webkit-scrollbar {
   @apply hidden;
 }
-.scroll-bar-mini::-webkit-scrollbar {
+.scroll-bar-mini::-webkit-scrollbar,
+.scroll-bar-mini-v2::-webkit-scrollbar {
   @apply w-1;
 }
 .scroll-bar-mini::-webkit-scrollbar-thumb {
   @apply bg-white rounded;
+}
+.scroll-bar-mini-v2::-webkit-scrollbar-thumb {
+  @apply bg-white/30 rounded;
 }
 code,
 .code {

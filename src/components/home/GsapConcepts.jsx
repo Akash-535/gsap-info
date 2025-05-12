@@ -18,11 +18,10 @@ const GsapConcepts = () => {
   useEffect(() => {
     const section = sectionRef.current;
     const cards = cardsRef.current;
-
     const totalCards = cards.children.length;
     const cardWidth = cards.children[0].offsetWidth;
     const totalScroll = cardWidth * totalCards;
-    const reduseWidth = window.innerWidth / 1.2;
+    // const reduseWidth = window.innerWidth / 1.2;
     gsap.to(cards, {
       x: () => `-${totalScroll}px`,
       ease: "none",
