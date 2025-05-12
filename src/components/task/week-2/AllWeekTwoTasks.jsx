@@ -1,6 +1,7 @@
 import Task1 from "../week-2/Task1";
 import Task2 from "../week-2/Task2";
 import Task3 from "../week-2/Task3";
+import RandomTask from "../week-2/RandomTask";
 
 const AllWeekTwoTasks = () => {
   return (
@@ -11,6 +12,7 @@ const AllWeekTwoTasks = () => {
         <Task2 title="animation with  same  component" />
       </div>
       <Task3 />
+      <RandomTask />
     </div>
   );
 };

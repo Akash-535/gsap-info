@@ -1,9 +1,8 @@
-import React from "react";
-import Hom from "../../src/components/home/Home";
+import HomeAction from "../../src/components/home/Home";
 const page = () => {
   return (
     <div>
-      <Hom />
+      <HomeAction />
     </div>
   );
 };

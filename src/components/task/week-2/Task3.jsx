@@ -48,7 +48,6 @@ const Task3 = () => {
       </Heading>
       <div className="animation-area relative">
         <Cta
-          disabled
           onClick={() => SetReload(reload + 1)}
           className="absolute right-3 top-3">
           Re-Load
